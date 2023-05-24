@@ -1,24 +1,14 @@
 import { MetaTags } from '@redwoodjs/web'
 
-import Stats from 'src/components/Stats/Stats'
+import DonationStatistics from 'src/components/DonationStatistics/DonationStatistics'
 import Table from 'src/components/Table/Table'
+
+import mockPaymentData from '../../../mockData/mockPaymentData'
 // import { useNonProfitContext } from 'src/layouts/MainLayout/MainLayout.context'
 
 const HomePage = () => {
   // How to pull the nonpofit ID form context
   // const { nonprofit, setNonProfit } = useNonProfitContext()
-
-  const homepageStats = [
-    { name: 'Total Donations', statistic: '42' },
-    {
-      name: 'Total Donations Amount',
-      statistic: '£20.50',
-    },
-    {
-      name: 'Donations with Gift Aid (%)',
-      statistic: '57%',
-    },
-  ]
 
   return (
     <>
@@ -30,11 +20,7 @@ const HomePage = () => {
         </h2>
       </div>
 
-      <dl className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
-        {homepageStats.map((item) => (
-          <Stats key={item.name} {...item} />
-        ))}
-      </dl>
+      <DonationStatistics paymentData={mockPaymentData.data.payments} />
 
       <div className="relative my-4 pb-8">
         <div className="absolute inset-0 flex items-center" aria-hidden="true">
@@ -49,7 +35,7 @@ const HomePage = () => {
       </div>
 
       <div className="relative h-96 overflow-hidden rounded-xl border border-dashed border-gray-400 opacity-75">
-        <Table tableData={homepageStats} />
+        <Table tableData={mockPaymentData.data.payments} />
       </div>
     </>
   )

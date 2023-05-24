@@ -13,7 +13,7 @@
 
 import type { ComponentMeta } from '@storybook/react'
 
-import Stats from './Stats'
+import Stats from './StatCard'
 
 export const generated = () => {
   return <Stats name="Donation Total" statistic="£20.50" />

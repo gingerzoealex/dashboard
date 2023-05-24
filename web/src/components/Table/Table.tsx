@@ -1,5 +1,6 @@
-import react from 'react'
+import React from 'react'
 
+import getColumnTitles from './Helpers/getColumnTitles'
 import TableType from './types'
 import './Table.scss'
 
@@ -7,11 +8,13 @@ const Table = ({ tableData }: TableType) => {
   // The elements of the table could be split up into separate components.
   // I tend to start with the simplest approach with the least amount of code
   // and then build up if changes are needed. ie, if we have 2 tables in the backlog and they have different data structures,
-  // we build a table that's as reusable as possible, ship the priority first, then extend the component to handle different data structures
-  // ideally, the component shouldn't care about the shape of the data, it should just make a table
+  // we build a table that's as reusable as possible, ship the main priority first, then extend the component to handle different data structures
+
   if (!tableData.length) {
     return <>No data found</>
   }
+
+  const tableHeaders = getColumnTitles(tableData)
 
   return (
     <table className="table">
@@ -23,17 +26,26 @@ const Table = ({ tableData }: TableType) => {
       Tailwind isn't a good example of this, but CSS frameworks can be super bulky and ick.
       I can work within Tailwind if necessary but my opinion is that writing good CSS from the outset is the way to go */}
       <thead className="table__header">
-        {tableData?.map(({ name }, index: number) => {
-          return (
-            <th key={name + index.toString()} className="table__header">
-              {name}
-            </th>
-          )
-        })}
+        <tr>
+          {tableHeaders?.map((key, index: number) => {
+            return (
+              <td key={key + index.toString()} className="table__header">
+                {key}
+              </td>
+            )
+          })}
+        </tr>
       </thead>
+
       <tbody className="table__body">
-        {tableData?.map(({ statistic }, index: number) => {
-          return <tr key={statistic + index.toString()}>{statistic}</tr>
+        {tableData.map((data, index) => {
+          return (
+            <tr key={index.toString()}>
+              {tableHeaders.map((key, index) => {
+                return <td key={key + index.toString()}>{data[key]}</td>
+              })}
+            </tr>
+          )
         })}
       </tbody>
     </table>
