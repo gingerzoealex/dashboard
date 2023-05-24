@@ -5,12 +5,13 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 import { Head } from '@redwoodjs/web'
 
+import NonProfitDropdown from '../../components/FormControls/NonProfitDropdown/NonProfitDropdown'
+
 import {
   NonProfitContext,
   NonpofitType,
   NonprofitsList,
 } from './MainLayout.context'
-import NonProfitDropdown from './NonProfitDropdown'
 
 const user = {
   name: 'Ben Evelant',

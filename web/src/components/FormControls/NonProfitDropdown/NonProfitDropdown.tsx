@@ -3,7 +3,10 @@ import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 
-import { NonprofitsList, useNonProfitContext } from './MainLayout.context'
+import {
+  NonprofitsList,
+  useNonProfitContext,
+} from '../../../layouts/MainLayout/MainLayout.context'
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
