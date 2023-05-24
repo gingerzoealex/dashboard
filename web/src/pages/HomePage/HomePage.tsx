@@ -10,6 +10,8 @@ const HomePage = () => {
   // How to pull the nonpofit ID form context
   // const { nonprofit, setNonProfit } = useNonProfitContext()
 
+  // TODO: add a helper to format the payment data, ie add a currency symbol & format the date
+
   return (
     <>
       <MetaTags title="Home" description="Home page" />
@@ -34,9 +36,7 @@ const HomePage = () => {
         </h2>
       </div>
 
-      <div className="relative h-96 overflow-hidden rounded-xl border border-dashed border-gray-400 opacity-75">
-        <Table tableData={mockPaymentData.data.payments} />
-      </div>
+      <Table tableData={mockPaymentData.data.payments.slice(0, 20)} />
     </>
   )
 }

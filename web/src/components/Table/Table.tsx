@@ -18,8 +18,7 @@ const Table = ({ tableData }: TableType) => {
 
   return (
     <table className="table">
-      {/* BEM for naming CSS classes is my preference, I'm open to different approaches,
-      this is just familiar and easy to follow.
+      {/* BEM for naming CSS classes is my preference, I'm open to different approaches, this is just familiar and easy to follow.
       SCSS can get wild and classes can get forgotten about, BEM makes it easier to remove/change things, and it's really scalable
       I'm a big fan of writing CSS and I find it so much easier to maintain a codebase where we have full control over
       styling without needing to rely on extensive documentation to update component styling.
