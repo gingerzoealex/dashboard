@@ -1,6 +1,7 @@
 import { MetaTags } from '@redwoodjs/web'
 
 import Stats from 'src/components/Stats/Stats'
+import Table from 'src/components/Table/Table'
 // import { useNonProfitContext } from 'src/layouts/MainLayout/MainLayout.context'
 
 const HomePage = () => {
@@ -48,32 +49,7 @@ const HomePage = () => {
       </div>
 
       <div className="relative h-96 overflow-hidden rounded-xl border border-dashed border-gray-400 opacity-75">
-        {/*
-         * TODO: Replace this component with a table component that is already supplied in the components folder
-         * */}
-        <svg
-          className="absolute inset-0 h-full w-full stroke-gray-900/10"
-          fill="none"
-        >
-          <defs>
-            <pattern
-              id="pattern-003a54e1-93b5-4534-9ccb-0ed8812b8270"
-              x="0"
-              y="0"
-              width="10"
-              height="10"
-              patternUnits="userSpaceOnUse"
-            >
-              <path d="M-3 13 15-5M-5 5l18-18M-1 21 17 3"></path>
-            </pattern>
-          </defs>
-          <rect
-            stroke="none"
-            fill="url(#pattern-003a54e1-93b5-4534-9ccb-0ed8812b8270)"
-            width="100%"
-            height="100%"
-          ></rect>
-        </svg>
+        <Table tableData={homepageStats} />
       </div>
     </>
   )

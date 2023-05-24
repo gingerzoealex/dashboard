@@ -1,0 +1,22 @@
+.table {
+  margin: 10px;
+  width: 100%;
+  display: grid;
+  align-items: center;
+
+  &__header {
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid #3b3b3b;
+    font-weight: 400;
+  }
+  &__body {
+    width: 100%;
+    display: flex;
+    tr {
+      width: 100%;
+      padding: 10px;
+      color: #3b3b3b;
+    }
+  }
+}
